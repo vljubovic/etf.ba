@@ -7,5 +7,5 @@ Technology:
   
   Frontend: Angular.JS 1.3
   
-  Backend: Statefull PHP JSON web service
+  Backend: Stateful PHP JSON web service
 
