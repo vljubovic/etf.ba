@@ -1,7 +1,8 @@
 <?PHP
+	// NE RADI TREBA PORTATI NA PHP PDO !!!
 	header("Access-Control-Allow-Origin: *");
 	header("Access-Control-Allow-Headers: *");
-	include("../db.php");	// get configuration :
+	include("../api/db.php");	// get configuration :
 	//where type=".intval($_GET['id'])." 
 	$sql="SELECT nickname FROM funynickname ORDER BY RAND() LIMIT 1";
 	$r=mysql_query($sql);

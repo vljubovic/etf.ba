@@ -17,13 +17,13 @@
 <table class="table">
 
 <?PHP
-	include("../db.php");	// get configuration :
+	// NE radi na development verziji treba portati na mysql PDO !
+	include("../api/db.php");	// get configuration :
 	$sql="SELECT * FROM  `ofMucConversationLog` ORDER BY `ofMucConversationLog`.`logTime` DESC LIMIT 0 , 900";
 
 	$r=mysql_query($sql);
 
 	while ($row=mysql_fetch_array($r)) {
-		if($row['nickname']!="teo")
 		echo "<tr><td style=\"float:right; width:100px;\"><b><span class=\"label label-primary\">".htmlentities($row['nickname'],ENT_QUOTES,'UTF-8').":</td><td>  ".htmlentities($row['body'],ENT_QUOTES,'UTF-8')."</td></tr>";
 	}
 ?>
