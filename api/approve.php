@@ -15,7 +15,7 @@
 	$sql ="update user set approved=1,approve_id='',super_approved=1 where approve_id=:id";
 	$sth1 = $db->prepare($sql);
 	$sth1->execute(array(':id'=>$id));
-			
-	echo '<script> window.location = "http://etf.ba"; </script>';
+
+	header('Location: http://etf.ba');
 
 ?>
