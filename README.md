@@ -12,7 +12,7 @@ Technology:
   
 # Setup
   
-  Start a seperate chrome verson only for development with CORS disabled (http://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
+  Start a seperate chrome verson only for development with CORS protection disabled (http://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
   ```
   chrome.exe --disable-web-security
   ```
