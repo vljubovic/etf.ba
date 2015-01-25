@@ -1,0 +1,27 @@
+<div class="row">
+<div class="col-6">
+            <form ng-submit="login(credentials)" novalidate>
+                    <div class="login-screen">
+                        <div class="login-icon">
+                            <img src="etfFresh/images/icons/svg/pencils.svg" alt="Posao@Etf.ba">
+                            <h4>Dobrodosli<small>etf.ba</small></h4>
+                        </div>
+
+                        <div class="login-form">
+                            <div class="form-group">
+                                <input ng-model="credentials.username" type="text" class="form-control login-field" value="" placeholder="Username" id="login-name">
+                                <label class="login-field-icon fui-user" for="login-name"></label>
+                            </div>
+
+                            <div class="form-group">
+                                <input ng-model="credentials.password" type="password" class="form-control login-field" value="" placeholder="Password" id="login-pass">
+                                <label class="login-field-icon fui-lock" for="login-pass"></label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" >Log in</button>
+                            <a class="login-link" href="#/remember">Zaboravili ste password?</a>
+                        </div>
+                    </div>
+            </form>
+ </div>
+ </div>

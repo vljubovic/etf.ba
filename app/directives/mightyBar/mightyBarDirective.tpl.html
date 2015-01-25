@@ -1,0 +1,14 @@
+<div class="mightybar" ng-click='bar.show=true;' ng-hide="bar.show">
+	Drag-drop datoteku sa kompjutera(ubrzo) ili pritisni da dodas resurs...   
+</div>  
+
+<div class="login-form mightybar-post" ng-if='bar.show'>
+
+	<form ng-submit="post($valid)" name="postform">
+		<div class="form-group">
+		  <textarea class="form-control login-field mighty-textarea" value="" name="tekst" ng-model="bar.tekst" placeholder="Link na sliku, ili neki tekst za naslovnu..." required ng-minlength="3" ></textarea> 
+		</div>
+		<button type="submit" class="btn btn-primary btn-lg btn-block" >Postavi</button>
+	<form>
+
+</div> 

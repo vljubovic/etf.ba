@@ -1,0 +1,17 @@
+#Options +FollowSymlinks
+php_value memory_limit 200M
+php_value post_max_size 200M
+php_value upload_max_filesize 200M
+RewriteEngine on
+RewriteRule ^logout logout.php
+RewriteRule ^login auth.php
+RewriteRule ^dobar/([0-9/]+) dobar.php?did=$1
+RewriteRule ^getdobar/([0-9/]+) getdobar.php?did=$1
+RewriteRule ^comments/([0-9/]+) comments.php?rid=$1
+RewriteRule ^wall wall.php
+RewriteRule ^post post.php
+RewriteRule ^register register.php
+RewriteRule ^remember remember.php?email=$1
+RewriteRule ^reset/([^/]+) reset.php?id=$1
+RewriteRule ^status status.php
+RewriteRule ^approve/([^/]+) approve.php?id=$1

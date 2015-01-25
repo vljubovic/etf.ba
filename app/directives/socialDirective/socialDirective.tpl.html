@@ -1,0 +1,41 @@
+<div class="mighty-post" ng-if="post.message.length>0">  
+	<div class="post-left">
+		  <span class="post-avatar" style="background-image: url('http://etf.ba/avatar/{{ post.uid }}.jpg');">&nbsp;</span>
+		  <div class="post-badges">
+
+				<img ng-if="post.administartor == '1'" class='img-badge' src='http://etf.ba/images/medal/adminmedal.png' title='Administrator'>
+				<img  ng-if="post.sh_box_moderator == '1'" class='img-badge' src='http://etf.ba/images/medal/silvermedal.png' title='Moderator'>
+<!-- 				<img  class='img-badge' src='http://etf.ba/images/medal/zaposlen.png' title='Zaposlen/a na faxu'> 
+				<img class='img-badge' src='http://etf.ba/images/medal/polozio.png' title='Završio/la prvu godinu'>
+				<img class='img-badge' src='http://etf.ba/images/medal/brucos.png' title='Brucoš'> -->
+
+		  </div>
+	</div>
+	<div class="post-middle">
+		<div class="post-title">{{post.firstname}}</div>
+		<div class="post-body" ng-bind-html="post.message | imgy2bFilter">
+
+			<div ng-if="post.type=='event'">
+				{{post.title}}
+			</div>
+
+		</div>
+
+	</div> 
+	<div class="post-right">
+		<div class="post-command-top" ng-click="showComments(post);">
+			{{ post.replies }}
+		</div>
+        <div class="post-command-2">
+        	<span class="fui-check" ng-click="doDobar(post, $event)"></span>
+        	&nbsp;
+        	<span  ng-mouseover="showDobar(post)" ng-mouseout="view.showDobars= false">{{post.dobar}}</span>
+        	<div ng-if="view.showDobars" class="container-dobars">
+        			<span class="fui2-triangle-up dobar-up"></span>
+					<div  class="show-dobars">
+						<span ng-repeat="dobar in view.dobars" class="list-dobar">{{dobar.firstname}}</span>
+					</div>
+        	</div>
+        </div>
+	</div>
+</div>  

@@ -1,0 +1,17 @@
+/* jQuery Countdown styles 1.6.3. */
+#glowingLayout { width: 500px; }
+#glowingLayout span { display: block; float: left; width: 34px; height: 50px; 
+    background: url(../images/countdownGlowing.gif) no-repeat 0px 0px; } 
+#glowingLayout span.image0 { background-position: -0px 0px; } 
+#glowingLayout span.image1 { background-position: -34px 0px; } 
+#glowingLayout span.image2 { background-position: -68px 0px; } 
+#glowingLayout span.image3 { background-position: -102px 0px; } 
+#glowingLayout span.image4 { background-position: -136px 0px; } 
+#glowingLayout span.image5 { background-position: -170px 0px; } 
+#glowingLayout span.image6 { background-position: -204px 0px; } 
+#glowingLayout span.image7 { background-position: -238px 0px; } 
+#glowingLayout span.image8 { background-position: -272px 0px; } 
+#glowingLayout span.image9 { background-position: -306px 0px; } 
+#glowingLayout span.imageDay { background-position: -340px 0px; } 
+#glowingLayout span.imageSep { background-position: -374px 0px; } 
+#glowingLayout span.imageSpace { background-position: -408px 0px; }

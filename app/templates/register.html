@@ -1,0 +1,58 @@
+<div class="row">
+<div class="col-6">
+	<div class="login-screen" id="loginscreen">
+        <div class="login-icon">
+            <img src="/etfFresh/images/icons/svg/pencils.svg" alt="Etf.ba">
+            <h4>Registracija <small>etf.ba</small></h4>
+        </div>
+
+        <div ng-show="errors[0]" class="alert palette-emerald">
+            <button type="button" class="close" ng-click="clearErrors()">&times;</button>
+                <li ng-repeat="error in errors">{{error.message}}</li>
+        </div>
+            <div class="login-form">
+              <form name='form' ng-submit="register(form.$valid)" class="angular-form" novalidate>
+                <div class="form-group">
+                    <input type="text" class="form-control login-field" value="" ng-model="user.name" id="name" placeholder="Username" ng-pattern="/^[a-z\d_]{3,20}$/" ng-minlength="2" ng-maxlength="12" required null-if-empty>
+                    <label class="login-field-icon fui-user" for="name"></label>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control login-field" value="" ng-model="user.email" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@etf.unsa.ba/" placeholder="@etf.unsa.ba email" ng-minlength="4" ng-maxlength="50" id="email" required null-if-empty>
+                    <label class="login-field-icon fui-mail" for="email"></label>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control login-field" value="" ng-model="user.altemail" placeholder="Alternativni email" ng-minlength="4" ng-maxlength="50" id="altemail" required null-if-empty>
+                    <label class="login-field-icon fui-mail" for="altemail"></label>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control login-field" value="" ng-model="user.password" placeholder="Password" equals="{{repassword}}" id="password" ng-minlength="6" required null-if-empty>
+                    <label class="login-field-icon fui-lock" for="password"></label>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control login-field" value="" ng-model="repassword" placeholder="Potvrdi password" id="repassword" equals="{{user.password}}" ng-minlength="6" required null-if-empty>
+                    <label class="login-field-icon fui-lock" for="repassword"></label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block" value="Register" >Registruj se</button>
+              </form>
+            </div>
+          </div>
+</div>
+ </div><!--/row-->
+
+<!-- Modal -->
+<div class="modal fade" id="registrationInfo" tabindex="-1" role="dialog" aria-labelledby="registrationInfo" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Registracija</h4>
+            </div>
+            <div class="modal-body">
+                {{modalinfo}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" ng-click="ok()">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>

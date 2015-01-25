@@ -1,0 +1,21 @@
+<div class="row">
+<div class="col-6">
+            <form ng-submit="remember(credentials)" novalidate>
+                    <div class="login-screen">
+                        <div class="login-icon">
+                            <img src="etfFresh/images/icons/svg/pencils.svg" alt="Posao@Etf.ba">
+                            <h4>Zaboravljen<small>password</small></h4>
+                        </div>
+
+                        <div class="login-form">
+                            <div class="form-group">
+                                <input ng-model="credentials.email" type="email" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@etf.unsa.ba/" class="form-control login-field" value="" placeholder="Fakultetski email" id="login-name" required>
+                                <label class="login-field-icon fui-user" for="login-name"></label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" >Posalji password na email</button>
+                        </div>
+                    </div>
+            </form>
+ </div>
+ </div>

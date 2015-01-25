@@ -1,0 +1,53 @@
+<header>
+    <div class="container">
+        <div id="logo" onclick="javascript:window.open('#/main','_self')" class="alignleft"></div>
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Navigacija</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <div class="etf-search input-group input-group">
+                        <div class="form-group">
+                            <input type="text" value="" ng-model="searchJobText" placeholder="Pretrazi stranicu" class="form-control search-input">
+                            <div class="dropdown menu-search">
+                                <a  class="btn btn-block btn-lg btn-inverse srch-btn "><div class="fui-search"></div></a>
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="menu-right">
+                <div ng-if="user.currentUser">
+                    <div class="dropdown menu-avatar" >
+                        <span id="avatarlink"  class="dropdown-toggle" data-toggle="dropdown">&nbsp;</span>
+                        <span class="dropdown-arrow"></span>
+                        <ul class="dropdown-menu">
+                            <li><a href="#/profile">Profil</a></li>
+                            <li class="divider"></li>
+                            <li><a ng-click="logout()">Logout</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="menu-avatar-user">
+                        {{ user.currentUser.nick }}
+                    </div>
+                </div>
+
+            <span class="btn-group group-menu menu-grupa"  ng-if="!user.currentUser">
+                <a href="#/register" class="btn btn-sm btn-primary btn-menu">Registracija</a>
+                <a href="#/login" class="btn btn-sm btn-primary btn-menu">Prijava</a>
+            </span>
+
+            </div>
+        </div>
+    </div>
+</header>
