@@ -17,5 +17,5 @@ Technology:
   chrome.exe --disable-web-security
   ```
   
-  Now you're able to access etf.ba API and haber service without the need to setup a XMPP server and a PHP/MySQL server
+Now you're able to access etf.ba API and haber service without the need to setup a XMPP server and a PHP/MySQL server!
 
