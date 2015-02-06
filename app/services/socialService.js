@@ -5,7 +5,7 @@ app.service('SocialService', function($http) {
 
  
     this.getAllPosts= function () {
-		return $http.get('api/wall');
+		return $http.get('http://etf.ba/api/wall');
 	}
 
 	this.createPost = function(message) {
