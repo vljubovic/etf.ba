@@ -12,7 +12,7 @@ app.service('SocialService', function($http) {
 		return $http({
 					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 					method: 'POST',
-					url: 'api/post',
+					url: 'http://etf.ba/api/post',
 					data: { 'post': message },
 					transformRequest: function (obj) {
 						var str = [];

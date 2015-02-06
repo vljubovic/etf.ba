@@ -9,7 +9,7 @@ angular.module('AuthentificationModule', ['ngResource'])
     var authService = {};
 
    authService.logout = function () {
-        return $http.get('api/logout').then(function() {
+        return $http.get('http://etf.ba/api/logout').then(function() {
             document.cookie = "uid=; expires=Thu, 01 Jan 1970 00:00:01 GMT;"
             document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:01 GMT;"
             //Haber.Core.disconnect();
@@ -24,7 +24,7 @@ angular.module('AuthentificationModule', ['ngResource'])
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             method: 'POST',
-            url: 'api/login',
+            url: 'http://etf.ba/api/login',
             data: {
                 'username': credentials.username,
                 'password': credentials.password
@@ -53,7 +53,7 @@ angular.module('AuthentificationModule', ['ngResource'])
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             method: 'POST',
-            url: 'api/remember',
+            url: 'http://etf.ba/api/remember',
             data: {
                 'email': email
             },
@@ -75,7 +75,7 @@ angular.module('AuthentificationModule', ['ngResource'])
     }
 
     authService.userStatus = function () {
-        return $http.get('api/status');
+        return $http.get('http://etf.ba/api/status');
     };
 
     authService.updateUserStatus = function() {
