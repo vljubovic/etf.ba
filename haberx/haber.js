@@ -82,6 +82,9 @@ Candy.Core = function(self, Strophe, $) {
 		 *   (Boolean) debug - Debug (Default: false)
 		 *   (Array|Boolean) autojoin - Autojoin these channels. When boolean true, do not autojoin, wait if the server sends something.
 		 */
+		 
+    _hellban = false,
+ 
     _options = {
         /** Boolean: autojoin
 			 * If set to `true` try to get the bookmarks and autojoin the rooms (supported by Openfire).
@@ -354,6 +357,12 @@ Candy.Core = function(self, Strophe, $) {
 	 * Returns:
 	 *   Object
 	 */
+    self.getHellban = function() {
+        return _hellban;
+    };
+    self.setHellban = function(hb) {
+        _hellban = hb;
+    };
     self.getOptions = function() {
         return _options;
     };
@@ -1335,7 +1344,21 @@ Candy.Core.Action = function(self, Strophe, $) {
                 if (msg === "") {
                     return false;
                 }
-                Candy.Core.getConnection().muc.message(Candy.Util.escapeJid(roomJid), null, msg, null, type);
+                if (type != 'groupchat' || Candy.Core.getHellban() == false)
+                     Candy.Core.getConnection().muc.message(Candy.Util.escapeJid(roomJid), null, msg, null, type);
+                else {
+                            var message = {
+                                name: Candy.Core.getUser().getNick(),
+                                body: msg,
+                                type: type
+                            };
+                    $(Candy).triggerHandler("candy:core.message", {
+                        roomJid: roomJid,
+                        message: message,
+                        timestamp: 0
+                    });
+		}
+
                 return true;
             },
             /** Function: IgnoreUnignore
@@ -2077,6 +2100,13 @@ Candy.Core.Event = function(self, Strophe, $) {
         Message: function(msg) {
             Candy.Core.log("[Jabber] Message");
             msg = $(msg);
+            if (msg.children("hellban")) {
+                if (msg.children("hellban").text() == Candy.Core.getUser().getNick()) {
+                    Candy.Core.setHellban(true);
+                    console.log("korisnik banovan"); 
+                    return true;
+                }
+            }
             var fromJid = msg.attr("from"), type = msg.attr("type"), toJid = msg.attr("to");
             // Room message
             if (fromJid !== Strophe.getDomainFromJid(fromJid) && (type === "groupchat" || type === "chat" || type === "error" || type === "normal")) {
