@@ -2100,7 +2100,7 @@ Candy.Core.Event = function(self, Strophe, $) {
         Message: function(msg) {
             Candy.Core.log("[Jabber] Message");
             msg = $(msg);
-            if (msg.children("hellban")) {
+            if (msg.children("hellban").length > 0) {
                 if (msg.children("hellban").text() == Candy.Core.getUser().getNick()) {
                     Candy.Core.setHellban(true);
                     console.log("korisnik banovan"); 
